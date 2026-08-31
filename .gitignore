@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+
+# training outputs
+*.pt
+results/
+sweep/
+sweep_main/
+
+# data the user supplies or the scripts download / produce
+dataset/cifar10/
+dataset/imagenet/image/
+dataset/imagenet/val_image/
+dataset/nuswide/images/
+data/features/**/*.pkl
+
+# verification / scratch logs
+*.log

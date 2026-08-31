@@ -1,0 +1,16 @@
+biopython==1.88
+networkx==3.6.1
+numpy==2.3.2
+pandas==2.3.1
+Pillow==11.3.0
+primer3-py==2.3.0
+pytorch_metric_learning==2.8.1
+scikit_learn==1.7.1
+scipy==1.17.1
+sconf==0.2.5
+tensorboard==2.21.0
+timm==1.0.19
+torch==2.7.1
+torchvision==0.22.1
+tqdm==4.67.1
+transformers==4.53.3
