@@ -341,32 +341,6 @@ if __name__ == "__main__":
         out_dir="./dataset/codeset",
     )
 
-    # cfg = BioConfig(
-    # num_candidates=100000,
-    # seq_length=32,
-    # min_gc=0.42, max_gc=0.58,
-    # max_run=4,                 # 막히면 5로
-    # target_tm=68.0,            # 66~70 근처가 보통 무난
-    # tm_tolerance=6.0,          # ±6
-    # anneal_temp_c=62.0,        
-    # primer_conc_nM=500.0,
-    # na_mM=50.0,
-    # mg_mM=0.0,
-    # dntp_mM=0.2,
-    # sec_struct_tm_margin=10.0,
-    # cross_end3_prefilter_k=6,
-    # cross_internal_prefilter_k=8,
-    # allow_end3_collision=False,
-    # enable_cross_dimer_audit=True,  # 막히면 False로 끄거나 샘플 수 줄여 속도/수락률 ↑
-    # cross_dimer_sample_size=32,
-    # slack=0.15,              
-    # gc_backoff_delta=0.02,    
-    # global_backoff_attempts=100_000,
-    # max_backoff_tm_factor=1.5,
-    # show_live_postfix=True, diag_every=20000, diag_topk=3,
-    # seed=107,
-    # out_dir="./dataset/codeset",
-    # )
 
 
     _ = generate_primers_bio_only(cfg)

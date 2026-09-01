@@ -5,68 +5,6 @@ from collections import Counter
 from tqdm import tqdm
 from sklearn.metrics import average_precision_score
 
-# def calculate_map_at_k(mapping_results, topk=None, device="cuda", eps=1e-3):
-
-#     query_matched_hash   = mapping_results['query_matched_hash']   # (Q, B) np.int{0,1}
-#     query_original_labels= mapping_results['query_original_labels']# (Q,)
-#     db_matched_hash      = mapping_results['db_matched_hash']      # (N, B)
-#     db_original_labels   = mapping_results['db_original_labels']   # (N,)
-#     db_float = mapping_results['db_matched_feature']        # (N, D) np.float32 (optional)
-#     query_float = mapping_results['query_matched_feature']      # (Q, D) np.float32 (optional)
-#     use_float = (db_float is not None) and (query_float is not None)
-
-
-#     db_binary_codes = torch.from_numpy(db_matched_hash.astype(np.int8)).to(device)
-#     query_binary_codes = torch.from_numpy(query_matched_hash.astype(np.int8)).to(device)
-#     db_original_labels_t = torch.from_numpy(db_original_labels).to(device)
-#     query_original_labels_t = torch.from_numpy(query_original_labels).to(device)
-
-#     if use_float:
-#         db_real = torch.from_numpy(np.asarray(db_float, dtype=np.float32)).to(device)
-#         query_real = torch.from_numpy(np.asarray(query_float, dtype=np.float32)).to(device)
-
-#     N = db_binary_codes.size(0)
-#     all_ap = []
-#     bar_format = "{l_bar}{bar}| {percentage:3.0f}%"
-
-#     for i in tqdm(range(query_binary_codes.size(0)),
-#                   desc=f"mAP@{topk if topk else 'all'}",
-#                   bar_format=bar_format):
-#         q_code = query_binary_codes[i].unsqueeze(0)    
-#         q_label = query_original_labels_t[i]
-
-#         dists = torch.sum(db_binary_codes != q_code, dim=1).to(torch.float32)
-
-#         if use_float:
-#             q_real = query_real[i]                      
-#             real_d2 = torch.sum((db_real - q_real)**2, dim=1)  
-#             minv = torch.min(real_d2)
-#             maxv = torch.max(real_d2)
-#             denom = (maxv - minv).clamp_min(1e-12)
-#             r = (real_d2 - minv) / denom               
-#             key = dists + eps * r                     
-#         else:
-#             idx = torch.arange(N, device=device, dtype=torch.float32)
-#             key = dists + (idx / max(1, N-1)) * 1e-9   
-
-#         sorted_indices = torch.argsort(key)          
-
-#         if topk is not None:
-#             current_topk = min(topk, N)
-#             sorted_indices = sorted_indices[:current_topk]
-
-#         sorted_labels = db_original_labels_t[sorted_indices]
-#         relevance = (sorted_labels == q_label).int().cpu().numpy()
-
-#         if np.sum(relevance) == 0:
-#             ap = 0.0
-#         else:
-#             ap = average_precision_score(relevance, (-key[sorted_indices]).detach().cpu().numpy())
-#         all_ap.append(ap)
-
-#     mean_ap = float(np.mean(all_ap)) if all_ap else 0.0
-#     return mean_ap
-
 def calculate_map_at_k(mapping_results, topk=None, device="cuda"):
     from sklearn.metrics import average_precision_score
     import torch

@@ -366,37 +366,19 @@ class ImgRtvCIFAR10(CIFAR10):
         return img_i, target
     
 PATH_CONFIG = {
+    # Fallback codesets, used only when a config does not set codeset_path / codeset_test_path.
+    # Every config/campaign/*.yaml sets both explicitly, so these are not what the reported
+    # experiments run with -- see codebooks/ for the per-dataset Set 1 codebooks.
     "codeset": {
         "train": {
-        16 : "./codebooks/set1_imagenet_16nt.csv", #imagenet best (paper default)
-        #16 : "./codebooks/set1_imagenet_16nt_tau6.csv", #imagenet, stricter tau_in=6 variant
-
-        #16 : "./codebooks/set1_cifar10_16nt.csv", #cifar_10 vit best
-        #16 : "./codebooks/set1_cifar10_16nt_swin.csv", #cifar_10 best for the non-ViT backbones
-        #16 : "./codebooks/set1_nuswide_16nt.csv", #nuswide best
-        #32 : "./codebooks/set1_imagenet_32nt.csv", #best imagenet
-        #32 : "./codebooks/set1_cifar10_32nt.csv", #cifar best
-        32 : "./codebooks/set1_nuswide_32nt.csv", #nuswide best
-        20 : "./dataset/codeset/final_bio_20nt_20k_hashcodes.csv"
+        16 : "./codebooks/set1_imagenet_16nt.csv",
+        32 : "./codebooks/set1_imagenet_32nt.csv"
         },
         "test": {
         16 : "./dataset/codeset/set2_16nt_20k.csv",
-        32 : "./dataset/codeset/set2_32nt_20k.csv",
-        20 : "./dataset/codeset/20bit_20k_hashcodes.csv"
+        32 : "./dataset/codeset/set2_32nt_20k.csv"
         }
     },
-    # "cifar-10": {
-    #     "train" : "./dataset/cifar-10/cifar10_train.pkl",
-    #     "query" : "./dataset/cifar-10/cifar10_test.pkl",
-    #     "db" : "./dataset/cifar-10/cifar10_db.pkl",
-    #     "emb_size" : 768
-    # },
-    # "imagenet": {
-    #     "train" : "./dataset/imagenet/imagenet_train.pkl",
-    #     "query" : "./dataset/imagenet/imagenet_test.pkl",
-    #     "db" : "./dataset/imagenet/imagenet_db.pkl",
-    #     "emb_size" : 768
-    # },
     "cifar-10": {
         "train" : "./data/features/cifar10/train_img768.pkl",
         "query" : "./data/features/cifar10/test_img768.pkl",

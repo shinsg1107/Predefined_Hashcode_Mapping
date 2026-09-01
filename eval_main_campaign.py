@@ -10,6 +10,7 @@ from tools import perform_mapping, perform_multilabel_mapping
 from eval_codebook import build_model, encode_codebook
 from utils.data_utils import data_load, DnaDataset
 from utils.evaluation_metric import calculate_map_at_k, calculate_map_at_k_multi, hash_distribution_concentration_topk
+from run_main_campaign import SEED
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 MAIN = os.path.join(REPO, "results", "main")
@@ -80,7 +81,7 @@ def main():
     rows = []
     for job in COMBOS:
         try:
-            r = eval_combo(f"{job}_P10_s2", args.device)
+            r = eval_combo(f"{job}_P10_s{SEED}", args.device)
             if r:
                 rows.append(r)
         except Exception as e:

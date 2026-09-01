@@ -43,5 +43,3 @@ additional training.
 | `nus_swin32` | NUS-WIDE | 3,315 | 0.8324 | 76.75 | 0.8073 | 73.72 |
 | `nus_eva16` | NUS-WIDE | 5,657 | 0.8393 | 58.40 | 0.8328 | 58.73 |
 | `nus_eva32` | NUS-WIDE | 3,315 | 0.8234 | 79.67 | 0.8048 | 77.13 |
-
-Re-fine-tuning the image encoders can lead to small numerical differences.

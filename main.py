@@ -227,12 +227,6 @@ def train(config):
                                              all_binary_codes,
                                              device)
             
-            # mapping_result = perform_ot_mapping(img_query_path, 
-            #                                  img_db_path, 
-            #                                  hash_embeddings, 
-            #                                  anchor_labels, 
-            #                                  all_binary_codes,
-            #                                  device)
             
             map_all = calculate_map_at_k(mapping_result, topk=None, device=device)
             map_10k = calculate_map_at_k(mapping_result, topk=10000, device=device)
@@ -324,11 +318,6 @@ def test(config):
                                              all_binary_codes,
                                              device)
     
-    # mapping_result = perform_soft_mapping(img_query_path, 
-    #                                          img_db_path, 
-    #                                          hash_embeddings, 
-    #                                          hash_labels, 
-    #                                          device)
 
     map_all = calculate_map_at_k(mapping_result, topk=None, device=device)
     map_10k = calculate_map_at_k(mapping_result, topk=10000, device=device)

@@ -27,8 +27,7 @@ commands from the repository root.
 # Fine-tune the image encoder
 python finetune_encoder.py \
     --backbone vit \
-    --dataset cifar10 \
-    --seed 42
+    --dataset cifar10
 
 # Extract image features
 python extract_features.py \
