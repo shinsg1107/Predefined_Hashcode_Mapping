@@ -86,7 +86,7 @@ optimization.
 
 The biologically admissible 16-nt candidate pool used by the generator is
 included under `dataset/codeset/`. It was produced with `generate_pool.py`
-using the biological constraints described in the manuscript.
+using the biological constraints described in the paper.
 
 The released 32-nt codebooks are included in `codebooks/`. Regenerating
 them from scratch requires the corresponding 32-nt candidate pool.

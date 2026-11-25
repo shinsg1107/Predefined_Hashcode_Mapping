@@ -1,4 +1,15 @@
-# PHM: Predefined Primer-Aware Hash Mapping for Image Retrieval
+# PHM: DNA-Compatible Predefined Primer-Aware Hash Mapping for Image Retrieval
+
+[![Paper](https://img.shields.io/badge/Paper-Neural%20Networks-blue)](https://doi.org/10.1016/j.neunet.2026.109890)
+[![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.neunet.2026.109890-informational)](https://doi.org/10.1016/j.neunet.2026.109890)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+Official implementation of the paper:
+
+> **DNA compatible predefined primer-aware hash mapping for image retrieval**<br>
+> Seunggi Shin, Byunghan Lee<br>
+> *Neural Networks*, Vol. 206, 109890, 2027.<br>
+> [[Paper]](https://doi.org/10.1016/j.neunet.2026.109890)
 
 PHM maps images to a predefined, DNA-compatible quaternary codebook.
 Biologically admissible DNA sequences are pseudo-labeled and refined before
@@ -8,7 +19,7 @@ classification objectives.
 ![PHM framework](figures/framework.png)
 
 This repository contains the implementation, experiment configurations,
-dataset split files, and released codebooks accompanying the manuscript.
+dataset split files, and released codebooks accompanying the paper.
 
 ## 1. Installation
 
@@ -41,7 +52,7 @@ python main.py \
 ```
 
 The supplied configuration follows the experimental setting used in the
-manuscript.
+paper.
 
 ## 3. Data and Codebooks
 
@@ -163,5 +174,21 @@ utils/                      data loading, metrics, and scheduling
 - [`LICENSE`](LICENSE): MIT License
 
 The supplied codebooks and configurations correspond to the experiments
-reported in the manuscript. Re-fine-tuning an image backbone may introduce
+reported in the paper. Re-fine-tuning an image backbone may introduce
 small numerical variation.
+
+## 7. Citation
+
+If you find this work useful, please cite:
+
+```bibtex
+@article{shin2027phm,
+  title   = {DNA compatible predefined primer-aware hash mapping for image retrieval},
+  author  = {Shin, Seunggi and Lee, Byunghan},
+  journal = {Neural Networks},
+  volume  = {206},
+  pages   = {109890},
+  year    = {2027},
+  doi     = {10.1016/j.neunet.2026.109890}
+}
+```
